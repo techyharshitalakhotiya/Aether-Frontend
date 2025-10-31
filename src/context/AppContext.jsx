@@ -45,13 +45,13 @@ const AppContextProvider = ( props ) => {
             const formData = new FormData();
             selectedImage && formData.append("file", selectedImage);
 
-            const {data: base64Image} = await axios.post(backendUrl+"/images/remove-background", formData, {
+            const {data: base6Image} = await axios.post(backendUrl+"/images/remove-background", formData, {
                 headers: {Authorization: `Bearer ${token}`},
                 timeout: 60000 // Added 60 second timeout for image processing
             });
             
-            if (base64Image) {
-                setResultImage(`data:image/png;base64,${base64Image}`); // Removed space after comma
+            if (base6Image) {
+                setResultImage(`data:image/png;base64,${base6Image}`); // Removed space after comma
                 setCredit(credit - 1);
             } else {
                 toast.error("No image data received.");
@@ -96,3 +96,4 @@ const AppContextProvider = ( props ) => {
 }
 
 export default AppContextProvider;
+

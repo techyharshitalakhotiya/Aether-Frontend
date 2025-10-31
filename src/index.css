@@ -2,10 +2,47 @@
 
 @import "tailwindcss";
 
+/* 1. YOUR NEW FUTURISTIC GREEN/DARK PALETTE
+     We define all colors as CSS variables.
+     Light mode is the default (:root).
+*/
+:root {
+  --bg-primary: #F5F5F5;
+  --bg-secondary: #FFFFFF;
+  --accent-primary: #00D090; /* Bright Green */
+  --accent-hover: #00A878;
+  --text-primary: #111111;
+  --text-secondary: #555555;
+  --border-color: #EEEEEE;
+
+  /* This makes the theme change smooth */
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* 2. DARK MODE PALETTE
+     When the <html> tag has data-theme="dark", these variables will apply.
+*/
+[data-theme='dark'] {
+  --bg-primary: #0A0A0A;     /* Very dark background */
+  --bg-secondary: #1A1A1A;  /* Slightly lighter card/modal background */
+  --accent-primary: #00F0A0; /* Brighter, more "futuristic" green */
+  --accent-hover: #30F2B0;
+  --text-primary: #EAEAEA;
+  --text-secondary: #888888;
+  --border-color: #333333;
+}
+
+/* 3. YOUR EXISTING STYLES
+     We just add the CSS variables to the body.
+*/
 body {
   margin: 0;
   padding: 0;
   font-family: 'Outfit', sans-serif;
+  
+  /* Apply the theme variables */
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
 }
 
 .slider {
@@ -22,6 +59,8 @@ body {
   background-position: center;
   background-size: cover;
   background-image: url("../src/assets/slide_icon.svg");
+  /* You could even filter this for dark mode! */
+  /* [data-theme='dark'] & { filter: invert(1); } */
 }
 
 /* Firefox */

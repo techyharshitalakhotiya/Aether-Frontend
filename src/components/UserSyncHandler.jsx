@@ -8,6 +8,7 @@ const UserSyncHandler = () => {
 
     const {isLoaded, isSignedIn, getToken} = useAuth();
     const {user} = useUser();
+    // --- FIXED --- Removed extra "=" sign
     const [synced, setSynced] = useState(false);
     const {backendUrl, loadUserCredits} = useContext(AppContext);
 
@@ -45,3 +46,4 @@ const UserSyncHandler = () => {
 }
 
 export default UserSyncHandler;
+
